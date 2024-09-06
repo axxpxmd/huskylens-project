@@ -1,0 +1,32 @@
+<?php
+
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+
+// Controller
+use App\Http\Controllers\HuskylensController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// API
+Route::group(['prefix' => '/api'], function() {
+    Route::get('/', function () {
+        return ('Selamat Datang di API Huskylens');
+    });
+
+    Route::post('/data-huskylens', [HuskylensController::class, 'getDataFromHuskylens']);
+});
+
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/get-data', [HomeController::class, 'getIdData'])->name('getIdData');
+Route::get('/form-quesioner', [HomeController::class, 'formQuesioner'])->name('formQuesioner');
