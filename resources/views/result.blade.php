@@ -8,12 +8,16 @@
                     <div class="text-center">
                         <p class="fw-bolder fs-20">RESULT</p>
                         <p class="fw-bold fs-40 {{ $color }} mb-0">{{ $totalResult }}%</p>
-                        <p>( <span title="form">{{ $totalDataAlat }}</span> + <span title="device">{{ $totalDataForm }}</span> )</p>
+                        <p>( <span title="device">{{ $totalDataAlat }}</span> + <span title="form">{{ $totalDataForm }}</span> )</p>
                     </div>
                     @if ($totalDataForm + $totalDataAlat >= 75)
-                        <p class="text-center fs-14">The results of the examination that was carried out <span class="fw-bold">did not indicate</span> any symptoms of diabetes.</p>
+                        <p class="text-center fs-14">
+                            We are pleased to inform you that your recent tests show <span class="text-success">negative detection for diabetes mellitus</span>. While this is great news, it is still important to take steps to ensure long-term health and well-being.
+                        </p>
                     @else
-                        <p class="text-center fs-14">The results of the examination that has been carried out <span class="fw-bold">indicate</span> that you have symptoms of diabetes</p>
+                        <p class="text-center fs-14">
+                            The results of your recent tests indicate a <span class="text-danger">positive detection for diabetes mellitus</span>. While this may feel overwhelming, please remember that with proper management, it is entirely possible to live a healthy and productive life.
+                        </p>
                     @endif
                     <hr>
                     <div class="m-b-20">

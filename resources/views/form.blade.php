@@ -24,7 +24,8 @@
             <div class="container">
                 <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px; width: 500px">
                     <div class="card-body">
-                        <p class="text-center fw-bold fs-20">FORM CHECKING</p>
+                        <p class="text-center fw-bold fs-20 text-uppercase">Questionnaire</p>
+                        <p class="text-center">Help us tailor your experience! <span class="text-primary">Answer a few quick questions</span> to better understand your health and personalize your diabetes screening. Your responses will guide our AI-powered analysis, ensuring the most accurate and insightful results, all while remaining non-invasive and stress-free! </p>
                         <hr class="mb-4">
                         <form action="{{ route('submitForm') }}" class="needs-validation" method="post">
                             <a href="{{ route('home') }}" class="text-danger"><i class="fa fa-arrow-left text-danger m-r-8"></i>Back</a>

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     /* z-index: -99; */
-    background-image: url('https://app.midtrans.com/payment-links/assets/bg.jpg');
+    background-image: url('../images/bg.jpeg');
 }
 
 .inner {
