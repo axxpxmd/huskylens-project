@@ -27,6 +27,8 @@ Route::group(['prefix' => '/api'], function() {
 });
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/get-data', [HomeController::class, 'getIdData'])->name('getIdData');
 Route::get('/form-quesioner', [HomeController::class, 'formQuesioner'])->name('formQuesioner');
+Route::post('/submit-form', [HomeController::class, 'submitForm'])->name('submitForm');
+Route::post('/get-result', [HomeController::class, 'getResult'])->name('getResult');
