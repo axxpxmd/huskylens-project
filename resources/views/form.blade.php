@@ -26,16 +26,16 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-2">
-                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Contact</label>
+                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control form-control-sm" name="contact" placeholder="Email / No Telp" required>
+                                    <input type="email" class="form-control form-control-sm" name="contact" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="mt-4">
                                 @foreach ($dataQuestions['pertanyaan'] as $key => $i)
                                 <div style="margin-bottom: 15px">
                                     <span class="fw-bold fs-12">{{ $key+1 }}. {{ $i }}</span>
-                                    <i class="fa fa-question-circle text-warning" title="{{ $dataQuestions['deskripsi'][0] }}"></i>
+                                    <i class="fa fa-question-circle text-warning"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="{{ $dataQuestions['deskripsi'][$key] }}"></i>
                                     <div style="margin-left: 15px !important">
                                         <div class="row mt-3">
                                             <div class="col">
