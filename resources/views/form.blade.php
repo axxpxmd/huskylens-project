@@ -1,34 +1,24 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UNITE - Diabetes Checking</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-    <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('css/myStyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/util.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-
-<body>
-    <div class="wrapper">
-        <div class="inner">
-            <img src="{{ asset('images/gif2.gif') }}" alt="" class="image-1" style="margin-left: -120px !important; margin-bottom: 33px !important">
-            <div class="container">
-                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px; width: 500px">
+@extends('app')
+@section('content')
+<div class="wrapper">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div>
+                {{-- <img src="{{ asset('images/gif2.gif') }}" alt="" class="image-1"> --}}
+            </div>
+            <div class="col-auto">
+                <div class="card shadow-lg p-3 bg-body my-10" style="border: none; border-radius: 20px">
                     <div class="card-body">
-                        <p class="text-center fw-bold fs-20 text-uppercase">Questionnaire</p>
-                        <p class="text-center">Help us tailor your experience! <span class="text-primary">Answer a few quick questions</span> to better understand your health and personalize your diabetes screening. Your responses will guide our AI-powered analysis, ensuring the most accurate and insightful results, all while remaining non-invasive and stress-free! </p>
+                        <div class="text-center">
+                            <p class="fw-bold fs-20 text-uppercase">Questionnaire</p>
+                            <p class="mb-0">Help us tailor your experience! <span class="text-primary">Answer a few quick questions</span> to better understand </p>
+                            <p class="mb-0">your health and personalize your diabetes screening. </p>
+                            <p class="mb-0">Your responses will guide our AI-powered analysis, ensuring the most accurate and insightful results, </p>
+                            <p class="mb-0">all while remaining non-invasive and stress-free! </p>
+                        </div>
                         <hr class="mb-4">
                         <form action="{{ route('submitForm') }}" class="needs-validation" method="post">
-                            <a href="{{ route('home') }}" class="text-danger"><i class="fa fa-arrow-left text-danger m-r-8"></i>Back</a>
+                            <a href="{{ route('home') }}" class="text-danger"><i class="fa fa-arrow-left text-danger m-r-8 mb-4"></i>Back</a>
                             <div class="form-group row">
                                 <label for="patient_name" class="col-sm-3 col-form-label fw-bold fs-12">Name</label>
                                 <div class="col-sm-9">
@@ -65,6 +55,7 @@
                                 </div>
                                 @endforeach
                             </div>
+                            <hr>
                             <div class="d-grid gap-2">
                                 <button class="btn btn-primary btn-sm" type="submit">Next <i class="fa fa-arrow-right"></i></button>
                             </div>
@@ -74,9 +65,10 @@
             </div>
         </div>
     </div>
-</body>
-<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-@stack('script')
-</html>
+</div>
+@endsection
+@push('script')
+<script type="text/javascript">
+</script>
+@endpush
+
