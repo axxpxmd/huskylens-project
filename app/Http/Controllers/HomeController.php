@@ -104,9 +104,9 @@ class HomeController extends Controller
 
         if ($totalResult >= 85) {
             $color = 'text-success';
-        } elseif($totalResult >= 75 && $totalResult <= 85) {
+        } elseif ($totalResult >= 75 && $totalResult <= 85) {
             $color = 'text-warning';
-        }else{
+        } else {
             $color = 'text-danger';
         }
 
@@ -120,5 +120,20 @@ class HomeController extends Controller
             'totalDataForm',
             'totalResult'
         ));
+    }
+
+    public function printReport()
+    {
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->setPaper('legal', 'portrait');
+
+        $data = 'jfklds';
+
+        $pdf->loadView('report', compact(
+            'data'
+        ));
+
+        return $pdf->stream("test" . ".pdf");
     }
 }

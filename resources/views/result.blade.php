@@ -22,27 +22,21 @@
                         @endif
                         <hr>
                         <div class="m-b-20">
-                            <div class="form-group row" style="margin-bottom: -10px !important">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">Name</label>
-                                <div class="col-sm-8">
-                                  <input type="text" readonly class="form-control-plaintext fw-bold fs-14" value=" : {{ $data->name }}">
-                                </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 fw-bold fs-14">Name</label>
+                                <label class="col-md-8 fw-bold fs-14">{{ $data->name }}</label>
                             </div>
-                            <div class="form-group row" style="margin-bottom: -10px !important">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">Contact</label>
-                                <div class="col-sm-8">
-                                  <input type="text" readonly class="form-control-plaintext fw-bold fs-14" value=" : {{ $data->contact }}">
-                                </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 fw-bold fs-14">Email</label>
+                                <label class="col-md-8 fw-bold fs-14">{{ $data->contact }}</label>
                             </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">ID</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control-plaintext fw-bold fs-14" id="id_data" name="id_data" value=" : {{ $id_data }}">
-                                </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 fw-bold fs-14">ID</label>
+                                <label class="col-md-8 fw-bold fs-14">{{ $id_data }}</label>
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-sm btn-primary m-r-8">Print Out <i class="fa fa-print m-l-8"></i></a>
+                            <a href="{{ route('printReport') }}" target="_blank" class="btn btn-sm btn-primary m-r-2">Print Out <i class="fa fa-print m-l-8"></i></a>
                             <a href="#" class="btn btn-sm btn-success">Send Email <i class="fa fa-mail-forward m-l-8"></i></a>
                         </div>
                         <div class="text-center mt-2">
