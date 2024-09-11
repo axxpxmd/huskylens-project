@@ -4,33 +4,30 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-auto">
-                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px">
+                <div class="card shadow-lg p-3 bg-body" style="border: none; border-radius: 20px">
                     <div class="card-body">
                         <form action="{{ route('getResult') }}" method="post">
+                            <input type="hidden" class="form-control-plaintext fw-bold fs-14" id="id_data" name="id_data">
                             <div class="text-center">
-                                <div class="text-center px-5">
-                                    <img src="{{ asset('images/gif1.gif') }}" class="mw-100 h-200px h-sm-325px" />
+                                <div class="text-center">
+                                    <img src="{{ asset('images/gif1.gif') }}" width="300">
                                 </div>
                                 <button class="btn btn-primary fs-6" type="submit"><i class="fa-solid fa-stethoscope"></i>Start Diagnosis</button>
                             </div>
                             <hr>
                             <input type="hidden" name="id" value="{{ $result->id }}">
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">Name</label>
-                                <div class="col-sm-8">
-                                  <input type="text" readonly class="form-control-plaintext fw-bold fs-14" value=" : {{ $result->name }}">
+                            <div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 fw-bold fs-14">Name</label>
+                                    <label class="col-md-8 fw-bold fs-14">{{ $result->name }}</label>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">Contact</label>
-                                <div class="col-sm-8">
-                                  <input type="text" readonly class="form-control-plaintext fw-bold fs-14" value=" : {{ $result->contact }}">
+                                <div class="row mb-3">
+                                    <label class="col-md-4 fw-bold fs-14">Email</label>
+                                    <label class="col-md-8 fw-bold fs-14">{{  $result->contact }}</label>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-4 col-form-label fw-bold fs-14">ID</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control-plaintext fw-bold fs-14" id="id_data" name="id_data">
+                                <div class="row mb-3">
+                                    <label class="col-md-4 fw-bold fs-14">ID</label>
+                                    <label class="col-md-8 fw-bold fs-14" id="show_id_data"></label>
                                 </div>
                             </div>
                         </form>
@@ -48,6 +45,7 @@
         $.get(url, function(data){
             console.log(data.id_data)
             $('#id_data').val(data.id_data);
+            $('#show_id_data').html(data.id_data);
         }, 'JSON')
     }
     setInterval(myFunction, 2000);

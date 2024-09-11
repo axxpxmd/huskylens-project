@@ -35,7 +35,7 @@
                                 @foreach ($dataQuestions['pertanyaan'] as $key => $i)
                                 <div style="margin-bottom: 15px">
                                     <span class="fw-bold fs-12">{{ $key+1 }}. {{ $i }}</span>
-                                    <i class="fa fa-question-circle text-warning"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="{{ $dataQuestions['deskripsi'][$key] }}"></i>
+                                    <i class="fa fa-question-circle text-warning"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="{{ $dataQuestions['deskripsi'][$key] }}"></i>
                                     <div style="margin-left: 15px !important">
                                         <div class="row mt-3">
                                             <div class="col">
