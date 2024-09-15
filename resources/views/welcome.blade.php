@@ -3,11 +3,14 @@
 <div class="wrapper2">
     <div class="container">
         <div class="row justify-content-md-center">
+            <div>
+                <img src="{{ asset('images/logo-united.png') }}" class="image-1">
+            </div>
             {{-- <div>
-                <img src="{{ asset('images/logo-husky.png') }}" alt="" class="image-1">
+                <img src="{{ asset('images/love.png') }}" class="image-hide" style="width: 30%; margin-bottom: -180px; margin-left: 820px; position: sticky !important">
             </div> --}}
             <div class="col-auto">
-                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px">
+                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px;">
                     <div class="card-body">
                         <div class="text-center">
                             <h2 class="fs-26 fw-bolder">WELCOME TO <span class="text-warning">UNITED</span></h2>
@@ -16,11 +19,18 @@
                             <hr style="width:25%; margin-left:37% !important; margin-right:40% !important" />
                             <p class="fs-14">UNITED leverages AI to detect early signs of diabetes through tongue analysis</p>
                             <p class="fs-14">offering a painless and accessible alternative to traditional blood tests</p>
-                            <a href="{{ route('formQuesioner') }}" class="btn btn-primary btn-sm fs-6 px-8 py-4 mt-4"><i class="fa-solid fa-stethoscope"></i>Getting Started</a>
+                            <a href="#" class="btn btn-success btn-sm px-8 py-4 m-r-8 mb-8m" style="width: 220px !important"><i class="fa-solid fa-stethoscope"></i>About UNITED</a>
+                            <a href="#" class="btn btn-danger btn-sm px-8 py-4" style="width: 220px !important"><i class="fa-solid fa-stethoscope"></i>About Diabetes Mellitus</a>
+                        </div>
+                        <div class="text-center">
+                            <a href="{{ route('formQuesioner') }}" class="btn btn-primary btn-sm px-8 py-4 mt-4"><i class="fa-solid fa-stethoscope"></i>Getting Started</a>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- <div>
+                <img src="{{ asset('images/logo1.png') }}" class="image-hide" style="width: 30%; margin-top: -12%; margin-left: 5%; position: sticky !important">
+            </div> --}}
         </div>
     </div>
 </div>
