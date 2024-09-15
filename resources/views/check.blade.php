@@ -12,7 +12,7 @@
                                 <div class="text-center">
                                     <img src="{{ asset('images/gif1.gif') }}" width="300">
                                 </div>
-                                <button class="btn btn-primary fs-6" type="submit"><i class="fa-solid fa-stethoscope"></i>Start Diagnosis</button>
+                                <button class="btn btn-primary fs-6" type="submit"><i class="fa-solid fa-stethoscope"></i>Detection Result</button>
                             </div>
                             <hr>
                             <input type="hidden" name="id" value="{{ $result->id }}">

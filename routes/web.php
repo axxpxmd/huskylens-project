@@ -33,3 +33,4 @@ Route::get('/form-quesioner', [HomeController::class, 'formQuesioner'])->name('f
 Route::post('/submit-form', [HomeController::class, 'submitForm'])->name('submitForm');
 Route::post('/get-result', [HomeController::class, 'getResult'])->name('getResult');
 Route::get('/print-report', [HomeController::class, 'printReport'])->name('printReport');
+Route::get('/kota-by-provinsi/{provinsi_id}', [HomeController::class, 'getKotaByProvinsi'])->name('getKotaByProvinsi');

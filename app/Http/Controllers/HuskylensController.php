@@ -16,7 +16,7 @@ class HuskylensController extends Controller
 
         Log::channel('huskylens')->info('HuskyLens Data : ', $data);
 
-        Data::create([
+        Data::create([  
             'id_data' => $data['ID']
         ]);
 

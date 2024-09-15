@@ -22,8 +22,8 @@
     @yield('content')
     @include('loading')
 </body>
-<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
 @stack('script')
 </html>

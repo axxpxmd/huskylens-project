@@ -18,8 +18,9 @@
 
 .image-1 {
     position: absolute;
-    bottom: 250px;
-    left: 240px;
+    bottom: 58%;
+    left: 20%;
+    width: 20%;
     /* z-index: -99; */
 }
 

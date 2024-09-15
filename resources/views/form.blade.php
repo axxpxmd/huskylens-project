@@ -31,23 +31,42 @@
                                     <input type="email" class="form-control form-control-sm" name="contact" placeholder="Email" required>
                                 </div>
                             </div>
+                            <div class="form-group row mt-2">
+                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Province</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select form-select-sm" name="provinsi_id" id="provinsi_id" data-control="select2" data-placeholder="Select an option">
+                                        <option value=""></option>
+                                        @foreach ($provinsi as $p)
+                                            <option value="{{ $p->id }}">{{ $p->n_provinsi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-2">
+                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Cities</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select form-select-sm" name="kota_id" id="kota_id" data-control="select2" data-placeholder="Select an option">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="mt-4">
                                 @foreach ($dataQuestions['pertanyaan'] as $key => $i)
                                 <div style="margin-bottom: 15px">
-                                    <span class="fw-bold fs-12">{{ $key+1 }}. {{ $i }}</span>
+                                    <span class="fs-12" style="font-weight: 900">{{ $key+1 }}. {{ $i }}</span>
                                     <i class="fa fa-question-circle text-warning"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="{{ $dataQuestions['deskripsi'][$key] }}"></i>
                                     <div style="margin-left: 15px !important">
                                         <div class="row mt-3">
                                             <div class="col">
                                                 <input class="form-check-input" type="radio" value="1" name="answer{{ $key }}" id="flexRadioDefault1" required>
                                                 <label class="form-check-label text-black" for="answer{{ $key }}">
-                                                    &nbsp;&nbsp;&nbsp;Ya
+                                                    &nbsp;&nbsp;&nbsp;Yes
                                                 </label>
                                             </div>
                                             <div class="col">
                                                 <input class="form-check-input" type="radio" value="0" name="answer{{ $key }}" id="flexRadioDefault1" required>
                                                 <label class="form-check-label text-black" for="answer{{ $key }}">
-                                                    &nbsp;&nbsp;&nbsp;Tidak
+                                                    &nbsp;&nbsp;&nbsp;No
                                                 </label>
                                             </div>
                                         </div>
@@ -69,6 +88,28 @@
 @endsection
 @push('script')
 <script type="text/javascript">
+    $('#provinsi_id').on('change', function(){
+        val = $(this).val();
+        option = "<option value=''>&nbsp;</option>";
+        if(val == ""){
+            $('#kota_id').html(option);
+        }else{
+            $('#kota_id').html("<option value=''>Loading...</option>");
+            url = "{{ route('getKotaByProvinsi', ':id') }}".replace(':id', val);
+            $.get(url, function(data){
+                if(data){
+                    $.each(data, function(index, value){
+                        option += "<option value='" + value.id + "'>" + value.n_kota +"</li>";
+                    });
+                    $('#kota_id').empty().html(option);
+
+                    $("#kota_id").val($("#kota_id option:first").val()).trigger("change.select2");
+                }else{
+                    $('#kota_id').html(option);
+                }
+            }, 'JSON');
+        }
+    });
 </script>
 @endpush
 

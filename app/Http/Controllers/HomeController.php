@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use App\Models\Kota;
 use App\Models\Patient;
+use App\Models\Provinsi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -24,34 +27,45 @@ class HomeController extends Controller
     {
         $dataQuestions = [
             'pertanyaan' => [
-                'Polydipsia (Excessive thirst)',
-                'Polyuria (Frequent urination)',
-                'Polyphagia (Excessive hunger)',
-                'Extreme fatigue',
-                'Blurred vision',
-                'Neuropathy (Nerve damage)',
-                'Acanthosis nigricans',
-                'Sudden weight loss',
-                'Slow healing of wounds or frequent infections',
-                'Difficulty concentrating'
+                'Polyuria',
+                'Polydipsia',
+                'Polyphagia',
+                'Diabetic Neuropathy ',
+                'Unexplained Weight Loss',
+                'Acanthosis Nigricans',
+                'Fatigue',
+                'Blurry Vision',
+                'Recurrent Infections',
+                'Slow Healing Wounds'
+
             ],
             'deskripsi' => [
-                'High blood sugar forces the kidneys to work harder to eliminate the excess glucose through urine, which leads to dehydration and a persistent feeling of thirst',
-                'The elevated sugar in the blood pulls more water into the kidneys, increasing urine output. This causes frequent urination as the body tries to get rid of the excess glucose.',
-                'When the body can’t use glucose for energy due to a lack of insulin, the cells remain “hungry,” triggering the brain to increase appetite, even though the body can’t effectively use the food consumed.',
-                'The body’s inability to properly use glucose for energy, either due to insufficient insulin or insulin resistance, leaves cells without fuel. This results in constant tiredness, even without physical exertion.',
-                'High blood sugar causes changes in the shape of the eye’s lens, making vision blurry. If blood sugar levels stay high for an extended period, this can lead to more serious eye issues, like diabetic retinopathy.',
-                'Prolonged high blood sugar damages the small blood vessels that supply nerves, particularly in the feet. This leads to numbness, tingling, burning sensations, or pain—a condition called diabetic neuropathy.',
-                'This skin condition, where areas like the neck or armpits become darkened and thickened, often signals insulin resistance, a hallmark of type 2 diabetes.',
-                'In type 1 diabetes, when the body cannot use glucose for energy, it starts breaking down fat and muscle, leading to rapid, unintended weight loss.',
-                'Elevated blood sugar weakens the immune system and damages blood vessels, slowing down the body’s ability to heal wounds and making infections, particularly in the feet, more likely. This can result in diabetic ulcers.',
-                'Blood sugar that is too high (hyperglycemia) or too low (hypoglycemia) disrupts brain function, leading to difficulty focusing, confusion, or even fainting in severe cases.'
+                'Excessive urination is a hallmark symptom of diabetes, caused by elevated blood glucose levels. The kidneys attempt to expel excess glucose through urine, leading to increased frequency and volume of urination',
+                'Excessive thirst accompanies polyuria. The significant loss of fluids through urine causes dehydration, triggering intense thirst as the body attempts to compensate for fluid loss',
+                'Excessive hunger is another common symptom. Despite elevated glucose levels in the bloodstream, the body’s cells cannot absorb and utilize glucose effectively due to insufficient insulin or insulin resistance, causing the body to signal for more food',
+                'Diabetic peripheral neuropathy is characterized by nerve damage, particularly in the extremities (hands and feet). This can manifest as numbness, tingling, or pain and is a result of long-term hyperglycemia, which damages nerve fibers.',
+                'Sudden and unintentional weight loss occurs despite an increase in appetite. This happens because the body, unable to use glucose for energy due to insulin dysfunction, begins to break down muscle and fat stores to meet energy demands',
+                'This condition presents as darkened, velvety patches of skin, commonly found in the neck, armpits, or groin areas. Acanthosis nigricans is often associated with insulin resistance, a precursor to type 2 diabetes.',
+                'Fatigue in diabetes is not merely a general tiredness. It stems from the body’s inability to efficiently use glucose for energy. When glucose cannot enter the cells due to insulin deficiency or resistance, energy levels drop, leading to chronic exhaustion',
+                'Visual disturbances in diabetes are typically caused by fluctuations in blood sugar levels, which can alter the shape of the eye’s lens. This swelling of the lens leads to temporary blurry vision. Over time, prolonged hyperglycemia may cause retinopathy, leading to permanent vision impairment',
+                'Diabetic individuals are prone to recurrent infections, particularly in the skin, urinary tract, and oral cavity. Hyperglycemia impairs the immune system, making it difficult for the body to fight off infections. Additionally, high glucose levels in tissues create an ideal environment for bacterial and fungal growth.',
+                'Impaired wound healing is a characteristic feature of diabetes. High blood sugar damages blood vessels and restricts blood flow to the affected areas, reducing the supply of oxygen and nutrients essential for tissue repair. This also compromises the immune response, making wounds more susceptible to infections and further delaying the healing process.'
             ]
         ];
 
+        $provinsi = Provinsi::select('id', 'n_provinsi')->get();
+
         return view('form', compact(
-            'dataQuestions'
+            'dataQuestions',
+            'provinsi'
         ));
+    }
+
+    public function getKotaByProvinsi($provinsi_id)
+    {
+        $kota = Kota::select('id', 'provinsi_id', 'n_kota')->where('provinsi_id', $provinsi_id)->get();
+
+        return $kota;
     }
 
     public function submitForm(Request $request)
@@ -59,6 +73,10 @@ class HomeController extends Controller
         // Get Data
         $name = $request->patient_name;
         $contact = $request->contact;
+        $provinsi_id = $request->provinsi_id;
+        $kota_id = $request->kota_id;
+
+        // $data_rumah_sakit = Http::get('https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=' . $provinsi_id . 'prop&cityid=' . $kota_id . '&type=2');
 
         $result = 0;
         for ($i = 0; $i < 10; $i++) {
@@ -74,6 +92,8 @@ class HomeController extends Controller
         $result = Patient::updateOrCreate([
             'name' => $name,
             'contact' => $contact,
+            'provinsi_id' => $provinsi_id,
+            'kota_id' => $kota_id,
             'result' => $result
         ]);
 
