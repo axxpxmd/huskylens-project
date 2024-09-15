@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use App\Models\Kecamatan;
 use App\Models\Kota;
 use App\Models\Patient;
 use App\Models\Provinsi;
@@ -68,6 +69,13 @@ class HomeController extends Controller
         return $kota;
     }
 
+    public function getKecamatanByKota($kota_id)
+    {
+        $kecamatans = Kecamatan::select('id', 'kota_id', 'n_kecamatan')->where('kota_id', $kota_id)->get();
+
+        return $kecamatans;
+    }
+
     public function submitForm(Request $request)
     {
         // Get Data
@@ -75,6 +83,7 @@ class HomeController extends Controller
         $contact = $request->contact;
         $provinsi_id = $request->provinsi_id;
         $kota_id = $request->kota_id;
+        $kecamatan_id = $request->kecamatan_id;
 
         // $data_rumah_sakit = Http::get('https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=' . $provinsi_id . 'prop&cityid=' . $kota_id . '&type=2');
 
@@ -94,7 +103,8 @@ class HomeController extends Controller
             'contact' => $contact,
             'provinsi_id' => $provinsi_id,
             'kota_id' => $kota_id,
-            'result' => $result
+            'result' => $result,
+            'kecamatan_id' => $kecamatan_id
         ]);
 
         return view('check', compact(

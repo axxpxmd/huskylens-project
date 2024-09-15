@@ -17,7 +17,7 @@
                             <p class="mb-0">all while remaining non-invasive and stress-free! </p>
                         </div>
                         <hr class="mb-4">
-                        <form action="{{ route('submitForm') }}" class="needs-validation" method="post">
+                        <form action="{{ route('submitForm') }}" class="needs-validation" method="post" >
                             <a href="{{ route('home') }}" class="text-danger"><i class="fa fa-arrow-left text-danger m-r-8 mb-4"></i>Back</a>
                             <div class="form-group row">
                                 <label for="patient_name" class="col-sm-3 col-form-label fw-bold fs-12">Name</label>
@@ -32,22 +32,26 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-2">
-                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Province</label>
+                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Address</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select form-select-sm" name="provinsi_id" id="provinsi_id" data-control="select2" data-placeholder="Select an option">
-                                        <option value=""></option>
-                                        @foreach ($provinsi as $p)
-                                            <option value="{{ $p->id }}">{{ $p->n_provinsi }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row mt-2">
-                                <label for="contact" class="col-sm-3 col-form-label fw-bold fs-12">Cities</label>
-                                <div class="col-sm-9">
-                                    <select class="form-select form-select-sm" name="kota_id" id="kota_id" data-control="select2" data-placeholder="Select an option">
-                                        <option></option>
-                                    </select>
+                                    <div class="col-auto mb-2">
+                                        <select class="form-select form-select-sm" required name="provinsi_id" id="provinsi_id" data-control="select2" data-placeholder="Province">
+                                            <option value=""></option>
+                                            @foreach ($provinsi as $p)
+                                                <option value="{{ $p->id }}">{{ $p->n_provinsi }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-auto mb-2">
+                                        <select class="form-select form-select-sm" required name="kota_id" id="kota_id" data-control="select2" data-placeholder="City">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-auto mb-2">
+                                        <select class="form-select form-select-sm" required name="kecamatan_id" id="kecamatan_id" data-control="select2" data-placeholder="Subdistrict">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mt-4">
@@ -95,6 +99,7 @@
             $('#kota_id').html(option);
         }else{
             $('#kota_id').html("<option value=''>Loading...</option>");
+            $('#kecamatan_id').html("<option value=''>Loading...</option>");
             url = "{{ route('getKotaByProvinsi', ':id') }}".replace(':id', val);
             $.get(url, function(data){
                 if(data){
@@ -106,6 +111,29 @@
                     $("#kota_id").val($("#kota_id option:first").val()).trigger("change.select2");
                 }else{
                     $('#kota_id').html(option);
+                }
+            }, 'JSON');
+        }
+    });
+
+    $('#kota_id').on('change', function(){
+        val = $(this).val();
+        option = "<option value=''>&nbsp;</option>";
+        if(val == ""){
+            $('#kecamatan_id').html(option);
+        }else{
+            $('#kecamatan_id').html("<option value=''>Loading...</option>");
+            url = "{{ route('getKecamatanByKota', ':id') }}".replace(':id', val);
+            $.get(url, function(data){
+                if(data){
+                    $.each(data, function(index, value){
+                        option += "<option value='" + value.id + "'>" + value.n_kecamatan +"</li>";
+                    });
+                    $('#kecamatan_id').empty().html(option);
+
+                    $("#kecamatan_id").val($("#kecamatan_id option:first").val()).trigger("change.select2");
+                }else{
+                    $('#kecamatan_id').html(option);
                 }
             }, 'JSON');
         }
