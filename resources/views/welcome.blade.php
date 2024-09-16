@@ -28,9 +28,9 @@
                     </div>
                 </div>
             </div>
-            {{-- <div>
+            <div>
                 <img src="{{ asset('images/logo1.png') }}" class="image-hide" style="width: 30%; margin-top: -12%; margin-left: 5%; position: sticky !important">
-            </div> --}}
+            </div>
         </div>
     </div>
 </div>

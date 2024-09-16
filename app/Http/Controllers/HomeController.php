@@ -177,4 +177,9 @@ class HomeController extends Controller
 
         return $pdf->stream("test" . ".pdf");
     }
+
+    public function sendEmail()
+    {
+        //
+    }
 }

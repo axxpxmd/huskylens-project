@@ -3,6 +3,12 @@
 <div class="wrapper2">
     <div class="container">
         <div class="row justify-content-md-center">
+            <div>
+                <img src="{{ asset('images/logo-husky.png') }}" class="image-logo-husky">
+            </div>
+            <div>
+                <img src="{{ asset('images/form2.png') }}" class="image-form2">
+            </div>
             <div class="col-auto">
                 <div class="card shadow-lg p-3 bg-body" style="border: none; border-radius: 20px">
                     <div class="card-body">

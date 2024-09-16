@@ -35,3 +35,4 @@ Route::post('/get-result', [HomeController::class, 'getResult'])->name('getResul
 Route::get('/print-report/{patient_id}', [HomeController::class, 'printReport'])->name('printReport');
 Route::get('/kota-by-provinsi/{provinsi_id}', [HomeController::class, 'getKotaByProvinsi'])->name('getKotaByProvinsi');
 Route::get('/kecamatan-by-kota/{kota_id}', [HomeController::class, 'getKecamatanByKota'])->name('getKecamatanByKota');
+Route::get('/send-email/{patient_id}', [HomeController::class, 'sendEmail'])->name('sendEmail');
