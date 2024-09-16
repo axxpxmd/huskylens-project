@@ -146,7 +146,12 @@ class HomeController extends Controller
         $res_data_rumah_sakit = $data_rumah_sakit->json();
         $detail_rumah_sakit = $res_data_rumah_sakit['hospitals'];
 
+        $data->update([
+            'final_result' => $totalResult
+        ]);
+
         return view('result', compact(
+            'id',
             'detail_rumah_sakit',
             'color',
             'id_data',
@@ -158,13 +163,13 @@ class HomeController extends Controller
         ));
     }
 
-    public function printReport()
+    public function printReport($patient_id)
     {
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
         $pdf->setPaper('legal', 'portrait');
 
-        $data = 'jfklds';
+        $data = Patient::find($patient_id);
 
         $pdf->loadView('report', compact(
             'data'
