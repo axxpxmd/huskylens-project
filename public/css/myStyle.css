@@ -24,6 +24,30 @@
     /* z-index: -99; */
 }
 
+.image-form {
+    position: absolute;
+    bottom: 73%;
+    left: 85%;
+    width: 10%;
+    /* z-index: -99; */
+}
+
+.image-darah {
+    position: absolute;
+    bottom: -75vh;
+    left: 85%;
+    width: 10%;
+    /* z-index: -99; */
+}
+
+.image-kotak-obat {
+    position: absolute;
+    bottom: 30%;
+    left: 2%;
+    width: 15%;
+    /* z-index: -99; */
+}
+
 .image-2 {
     position: absolute;
     bottom: 0;

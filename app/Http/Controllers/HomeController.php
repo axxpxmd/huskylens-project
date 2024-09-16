@@ -85,8 +85,6 @@ class HomeController extends Controller
         $kota_id = $request->kota_id;
         $kecamatan_id = $request->kecamatan_id;
 
-        // $data_rumah_sakit = Http::get('https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=' . $provinsi_id . 'prop&cityid=' . $kota_id . '&type=2');
-
         $result = 0;
         for ($i = 0; $i < 10; $i++) {
             $data = 'answer' . $i;
@@ -128,8 +126,8 @@ class HomeController extends Controller
 
         // cek data kuesioner
         $data = Patient::find($id);
-        $totalDataForm = $data->result;
 
+        $totalDataForm = $data->result;
         $totalResult = $totalDataAlat + $totalDataForm;
 
         if ($totalResult >= 85) {
@@ -140,8 +138,16 @@ class HomeController extends Controller
             $color = 'text-danger';
         }
 
+        $provinsi_id = $data->provinsi_id;
+        $kota_id = $data->kota_id;
+        $kecamatan_id = $data->kecamatan_id;
+
+        $data_rumah_sakit = Http::get('https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=' . $provinsi_id . 'prop&cityid=' . $kota_id . '&type=2');
+        $res_data_rumah_sakit = $data_rumah_sakit->json();
+        $detail_rumah_sakit = $res_data_rumah_sakit['hospitals'];
 
         return view('result', compact(
+            'detail_rumah_sakit',
             'color',
             'id_data',
             'data',

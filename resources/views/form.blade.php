@@ -4,7 +4,10 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div>
-                {{-- <img src="{{ asset('images/gif2.gif') }}" alt="" class="image-1"> --}}
+                <img src="{{ asset('images/form.png') }}" class="image-form">
+            </div>
+            <div>
+                <img src="{{ asset('images/kotak-obat.png') }}" class="image-kotak-obat">
             </div>
             <div class="col-auto">
                 <div class="card shadow-lg p-3 bg-body my-10" style="border: none; border-radius: 20px">
