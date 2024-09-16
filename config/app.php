@@ -28,6 +28,11 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    // Email
+    'name' => env('APP_NAME'),
+    'mail_from' => env('MAIL_USERNAME'),
+    'mail_name' => env('MAIL_NAME'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

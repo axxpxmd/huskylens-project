@@ -30,8 +30,8 @@ Route::group(['prefix' => '/api'], function() {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/get-data', [HomeController::class, 'getIdData'])->name('getIdData');
 Route::get('/form-quesioner', [HomeController::class, 'formQuesioner'])->name('formQuesioner');
-Route::post('/submit-form', [HomeController::class, 'submitForm'])->name('submitForm');
-Route::post('/get-result', [HomeController::class, 'getResult'])->name('getResult');
+Route::get('/submit-form', [HomeController::class, 'submitForm'])->name('submitForm');
+Route::get('/get-result', [HomeController::class, 'getResult'])->name('getResult');
 Route::get('/print-report/{patient_id}', [HomeController::class, 'printReport'])->name('printReport');
 Route::get('/kota-by-provinsi/{provinsi_id}', [HomeController::class, 'getKotaByProvinsi'])->name('getKotaByProvinsi');
 Route::get('/kecamatan-by-kota/{kota_id}', [HomeController::class, 'getKecamatanByKota'])->name('getKecamatanByKota');

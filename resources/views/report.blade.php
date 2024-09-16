@@ -37,18 +37,18 @@
             </tr>
             <tr>
                 <td>
-                    <p>&nbsp; </p>
+                    <p></p>
                 </td>
-                <td>&nbsp;</td>
+                <td></td>
                 <td>
                     <table>
                         <tr>
-                            <td>&nbsp;&nbsp;City</td>
+                            <td>&nbsp;City</td>
                             <td>&nbsp;&nbsp;:</td>
                             <td>&nbsp;&nbsp;{{ $data->kota->n_kota }}</td>
                         </tr>
                         <tr>
-                            <td>&nbsp;&nbsp;Province</td>
+                            <td>&nbsp;Province</td>
                             <td>&nbsp;&nbsp;:</td>
                             <td>&nbsp;&nbsp;{{ $data->provinsi->n_provinsi }}</td>
                         </tr>

@@ -12,7 +12,7 @@
             <div class="col-auto">
                 <div class="card shadow-lg p-3 bg-body" style="border: none; border-radius: 20px">
                     <div class="card-body">
-                        <form action="{{ route('getResult') }}" method="post">
+                        <form action="{{ route('getResult') }}" method="get">
                             <input type="hidden" class="form-control-plaintext fw-bold fs-14" id="id_data" name="id_data">
                             <div class="text-center">
                                 <div class="text-center">

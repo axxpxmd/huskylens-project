@@ -9,6 +9,7 @@ use App\Models\Patient;
 use App\Models\Provinsi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -178,8 +179,42 @@ class HomeController extends Controller
         return $pdf->stream("test" . ".pdf");
     }
 
-    public function sendEmail()
+    public function sendEmail($patient_id)
     {
-        //
+        $data = Patient::find($patient_id);
+
+        $email    = $data->contact;
+        $mailFrom = config('app.mail_from');
+        $mailName = config('app.mail_name');
+
+        $dataEmail = array(
+            'name' => $data->name,
+            'final_result' => $data->final_result,
+            'provinsi' => $data->provinsi->n_provinsi,
+            'kota' => $data->kota->n_kota,
+            'kecamatan' => $data->kecamatan->n_kecamatan
+        );
+
+        // print
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->setPaper('legal', 'portrait');
+
+        $data = Patient::find($patient_id);
+
+        $pdf->loadView('report', compact(
+            'data'
+        ));
+
+        // get content PDF
+        $content = $pdf->download()->getOriginalContent();
+
+        Mail::send('mail', $dataEmail, function ($message) use ($email, $mailFrom, $mailName, $content, $data) {
+            $message->to($email)->subject('Diabetes Detection');
+            $message->attachData($content, $data->name . '.pdf');
+            $message->from($mailFrom, $mailName);
+        });
+
+        return redirect()->back()->withMessage('Profile saved!');
     }
 }

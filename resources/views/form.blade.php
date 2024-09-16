@@ -20,7 +20,7 @@
                             <p class="mb-0">all while remaining non-invasive and stress-free! </p>
                         </div>
                         <hr class="mb-4">
-                        <form action="{{ route('submitForm') }}" class="needs-validation" method="post" >
+                        <form action="{{ route('submitForm') }}" class="needs-validation" method="get" >
                             <a href="{{ route('home') }}" class="text-danger"><i class="fa fa-arrow-left text-danger m-r-8 mb-4"></i>Back</a>
                             <div class="form-group row">
                                 <label for="patient_name" class="col-sm-3 col-form-label fw-bold fs-12">Name</label>
