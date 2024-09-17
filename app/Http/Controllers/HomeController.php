@@ -193,7 +193,7 @@ class HomeController extends Controller
         } elseif ($data->final_result >= 75 && $data->final_result <= 85) {
             $risk_level = 'Moderate';
         } else {
-            $risk_level = 'Low';
+            $risk_level = 'High';
         }
 
         if ($data->final_result >= 75) {
