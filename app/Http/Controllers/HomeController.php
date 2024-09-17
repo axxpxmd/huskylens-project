@@ -187,12 +187,33 @@ class HomeController extends Controller
         $mailFrom = config('app.mail_from');
         $mailName = config('app.mail_name');
 
+        // Check
+        if ($data->final_result >= 85) {
+            $risk_level = 'Low';
+        } elseif ($data->final_result >= 75 && $data->final_result <= 85) {
+            $risk_level = 'Moderate';
+        } else {
+            $risk_level = 'Low';
+        }
+
+        if ($data->final_result >= 75) {
+            $status = 'NEGATIF';
+            $text = 'Continue with regular health check-ups and maintain a healthy lifestyle';
+        } else {
+            $status = 'POSITIF';
+            $text = 'Schedule a consultation with your healthcare provider for further tests and management';
+        }
+
+
         $dataEmail = array(
             'name' => $data->name,
             'final_result' => $data->final_result,
             'provinsi' => $data->provinsi->n_provinsi,
             'kota' => $data->kota->n_kota,
-            'kecamatan' => $data->kecamatan->n_kecamatan
+            'kecamatan' => $data->kecamatan->n_kecamatan,
+            'risk_level' => $risk_level,
+            'status' => $status,
+            'text_status' => $text
         );
 
         // print

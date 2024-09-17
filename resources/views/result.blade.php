@@ -46,8 +46,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="{{ route('printReport', $id) }}" target="_blank" class="btn btn-sm btn-primary m-r-2">Print Out <i class="fa fa-print m-l-8"></i></a>
-                            <a href="{{ route('sendEmail', $id) }}" onclick="loading()" class="btn btn-sm btn-success">Send Email <i class="fa fa-mail-forward m-l-8"></i></a>
+                            <a href="{{ route('printReport', $id) }}" style="width: 125px !important" target="_blank" class="btn btn-sm btn-primary m-r-2">Print Out <i class="fa fa-print m-l-8"></i></a>
+                            <a href="{{ route('sendEmail', $id) }}" style="width: 125px !important" onclick="loading()" class="btn btn-sm btn-success">Send Email <i class="fa fa-mail-forward m-l-8"></i></a>
                         </div>
                         <div class="text-center mt-2">
                             <a href="{{ route('home') }}" class="btn btn-sm btn-danger">Home <i class="fa fa-home m-l-8"></i></a>
