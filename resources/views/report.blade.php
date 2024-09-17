@@ -71,12 +71,20 @@
                         <p style="font-weight: bold; margin-top: 4px; margin-bottom: 0px">Status : <span style="font-weight: normal !important">{{ $data->final_result >= 75 ? 'NEGATIF' : 'POSITIF' }}</span></p>
                     </li>
                     <li>
-                        <p style="font-weight: bold; margin-top: 4px; margin-bottom: 4px">Risk Level : <span style="font-weight: normal !important">Medium</span></p>
+                        <p style="font-weight: bold; margin-top: 4px; margin-bottom: 4px">Risk Level : <span style="font-weight: normal !important">
+                            @if ($data->final_result >= 85)
+                                Low
+                            @elseif($data->final_result >= 75 && $data->final_result <= 85)
+                                Moderate
+                            @else
+                                High
+                            @endif
+                        </span></p>
                     </li>
                 </div>
             </li>
             <li>
-                <p style="font-weight: bold; margin: 0px">Accurary</p>
+                <p style="font-weight: bold; margin: 0px">Accuracy</p>
                 <p style="margin-top: 4px">The AI detection system provides a <span style="font-weight: bolder">{{ $data->final_result }}%</span> accuracy in identifying early signs of diabetes.</p>
             </li>
         </div>

@@ -199,9 +199,6 @@ class HomeController extends Controller
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
         $pdf->setPaper('legal', 'portrait');
-
-        $data = Patient::find($patient_id);
-
         $pdf->loadView('report', compact(
             'data'
         ));
@@ -215,6 +212,6 @@ class HomeController extends Controller
             $message->from($mailFrom, $mailName);
         });
 
-        return redirect()->back()->withMessage('Profile saved!');
+        return redirect()->back()->withSuccess('Email sent successfully!');
     }
 }

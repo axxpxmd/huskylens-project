@@ -3,7 +3,14 @@
 <div class="wrapper2">
     <div class="container">
         <div class="row justify-content-md-center">
+            <div>
+                <img src="{{ asset('images/stetoskop.png') }}" class="image-stetoskop">
+            </div>
+            <div>
+                <img src="{{ asset('images/dashboard.png') }}" class="image-dashboard">
+            </div>
             <div class="col-auto">
+                @include('alerts')
                 <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px; width: 400px">
                     <div class="card-body">
                         <div class="text-center">
@@ -40,7 +47,7 @@
                         </div>
                         <div class="text-center">
                             <a href="{{ route('printReport', $id) }}" target="_blank" class="btn btn-sm btn-primary m-r-2">Print Out <i class="fa fa-print m-l-8"></i></a>
-                            <a href="{{ route('sendEmail', $id) }}" class="btn btn-sm btn-success">Send Email <i class="fa fa-mail-forward m-l-8"></i></a>
+                            <a href="{{ route('sendEmail', $id) }}" onclick="loading()" class="btn btn-sm btn-success">Send Email <i class="fa fa-mail-forward m-l-8"></i></a>
                         </div>
                         <div class="text-center mt-2">
                             <a href="{{ route('home') }}" class="btn btn-sm btn-danger">Home <i class="fa fa-home m-l-8"></i></a>
@@ -96,9 +103,12 @@
         </div>
     </div>
 </div>
+@include('loading')
 @endsection
 @push('script')
 <script type="text/javascript">
-
+    function loading(){
+        $('#loading').modal('show');
+    }
 </script>
 @endpush
