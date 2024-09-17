@@ -46,6 +46,7 @@
 @endsection
 @push('script')
 <script type="text/javascript">
+    $('#show_id_data').html('please wait...');
     function myFunction() {
         url = "{{ route('getIdData') }}"
         $.get(url, function(data){
