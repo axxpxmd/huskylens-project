@@ -4,14 +4,14 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div>
-                <img src="{{ asset('images/stetoskop.png') }}" class="image-stetoskop">
+                <img src="{{ asset('images/stetoskop.png') }}" class="image-stetoskop animate__animated  animate__backInRight">
             </div>
             <div>
-                <img src="{{ asset('images/dashboard.png') }}" class="image-dashboard">
+                <img src="{{ asset('images/dashboard.png') }}" class="image-dashboard animate__animated  animate__backInLeft">
             </div>
             <div class="col-auto">
                 @include('alerts')
-                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px; width: 400px">
+                <div class="card shadow-lg p-3 mb-5 bg-body animate__animated animate__bounceInDown" style="border: none; border-radius: 20px; width: 400px">
                     <div class="card-body">
                         <div class="text-center">
                             <p class="fw-bolder fs-20">RESULT</p>

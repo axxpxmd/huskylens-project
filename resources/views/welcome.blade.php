@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div>
-                <img src="{{ asset('images/logo-united.png') }}" class="image-1">
+                <img src="{{ asset('images/logo-united.png') }}" class="image-1 animate__animated  animate__slideInLeft">
             </div>
             {{-- <div>
                 <img src="{{ asset('images/love.png') }}" class="image-hide" style="width: 30%; margin-bottom: -180px; margin-left: 820px; position: sticky !important">
             </div> --}}
             <div class="col-auto">
-                <div class="card shadow-lg p-3 mb-5 bg-body" style="border: none; border-radius: 20px;">
+                <div class="card shadow-lg p-3 mb-5 bg-body animate__animated animate__bounceInDown" style="border: none; border-radius: 20px;">
                     <div class="card-body">
                         <div class="text-center">
                             <h2 class="fs-26 fw-bolder">WELCOME TO <span class="text-warning">UNITED</span></h2>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div>
-                <img src="{{ asset('images/logo1.png') }}" class="image-hide" style="width: 30%; margin-top: -12%; margin-left: 5%; position: sticky !important">
+                <img src="{{ asset('images/logo1.png') }}" class="image-hide animate__animated  animate__slideInUp" style="width: 30%; margin-top: -12%; margin-left: 5%; position: sticky !important">
             </div>
         </div>
     </div>

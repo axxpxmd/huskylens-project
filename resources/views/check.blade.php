@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div>
-                <img src="{{ asset('images/logo-husky.png') }}" class="image-logo-husky">
+                <img src="{{ asset('images/logo-husky.png') }}" class="image-logo-husky animate__animated  animate__slideInLeft">
             </div>
             <div>
-                <img src="{{ asset('images/form2.png') }}" class="image-form2">
+                <img src="{{ asset('images/form2.png') }}" class="image-form2 animate__animated  animate__slideInRight">
             </div>
             <div class="col-auto">
-                <div class="card shadow-lg p-3 bg-body" style="border: none; border-radius: 20px">
+                <div class="card shadow-lg p-3 bg-body animate__animated animate__bounceInDown" style="border: none; border-radius: 20px">
                     <div class="card-body">
                         <form action="{{ route('getResult') }}" method="get">
                             <input type="hidden" class="form-control-plaintext fw-bold fs-14" id="id_data" name="id_data">

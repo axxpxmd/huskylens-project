@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div>
-                <img src="{{ asset('images/form.png') }}" class="image-form">
+                <img src="{{ asset('images/form.png') }}" class="image-form animate__animated  animate__slideInLeft">
             </div>
             <div>
-                <img src="{{ asset('images/kotak-obat.png') }}" class="image-kotak-obat">
+                <img src="{{ asset('images/kotak-obat.png') }}" class="image-kotak-obat animate__animated  animate__slideInRight">
             </div>
             <div class="col-auto">
-                <div class="card shadow-lg p-3 bg-body my-10" style="border: none; border-radius: 20px">
+                <div class="card shadow-lg p-3 bg-body my-10 animate__animated animate__bounceInDown" style="border: none; border-radius: 20px">
                     <div class="card-body">
                         <div class="text-center">
                             <p class="fw-bold fs-20 text-uppercase">Questionnaire</p>
