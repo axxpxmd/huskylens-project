@@ -235,4 +235,14 @@ class HomeController extends Controller
 
         return redirect()->back()->withSuccess('Email sent successfully!');
     }
+
+    public function aboutUnited()
+    {
+        return view('about-united');
+    }
+
+    public function aboutDiabeted()
+    {
+        return view('about-diabetes');
+    }
 }

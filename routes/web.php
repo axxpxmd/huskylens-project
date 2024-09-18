@@ -36,3 +36,5 @@ Route::get('/print-report/{patient_id}', [HomeController::class, 'printReport'])
 Route::get('/kota-by-provinsi/{provinsi_id}', [HomeController::class, 'getKotaByProvinsi'])->name('getKotaByProvinsi');
 Route::get('/kecamatan-by-kota/{kota_id}', [HomeController::class, 'getKecamatanByKota'])->name('getKecamatanByKota');
 Route::get('/send-email/{patient_id}', [HomeController::class, 'sendEmail'])->name('sendEmail');
+Route::get('/about-united', [HomeController::class, 'aboutUnited'])->name('aboutUnited');
+Route::get('/about-diabeted', [HomeController::class, 'aboutDiabeted'])->name('aboutDiabeted');
