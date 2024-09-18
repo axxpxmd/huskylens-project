@@ -13,7 +13,7 @@
                 <div class="card shadow-lg p-3 mb-5 bg-body animate__animated animate__bounceInDown" style="border: none; border-radius: 20px;">
                     <div class="card-body">
                         <div class="text-center">
-                            <h2 class="fs-26 fw-bolder">WELCOME TO <span class="text-warning">UNITED</span></h2>
+                            <h2 class="fs-26 fw-bolder">WELCOME TO <span style="color: #45818E">UNITED</span></h2>
                             <p class="fs-14">Revolutionizing Diabetes Detection with AI – <span style="color: #F61687">A Painless</span>, <span style="color: #002EEF">Accessible</span>, and <span class="text-success">Affordable</span> Solution</p>
                             <p class="fs-14">Through Tongue Analysis!</p>
                             <hr style="width:25%; margin-left:37% !important; margin-right:40% !important" />

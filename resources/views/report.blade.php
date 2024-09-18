@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>UNITE - Diabetes Checking</title>
+    <title>UNITED - Diabetes Checking</title>
 
     <style>
         body{
@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <p style="text-align: center; font-size: 14px">ANALYZE REPORT</p>
+    <p style="text-align: center; font-size: 14px">REPORT ANALYSIS</p>
     <img src="{{ public_path('images/logo-united.png') }}" width="100px" alt="">
     <div>
         <p style="font-weight: bolder; margin-bottom: 0px">PATIENT IDENTITY</p>
@@ -62,13 +62,13 @@
         <div style="margin-top: 15px; margin-left: 50px">
             <li>
                 <p style="font-weight: bold; margin: 0px">Test Conducted</p>
-                <p style="margin-top: 4px; margin-bottom: 4px">AI-based Tongue Analysis using HuskyLens and UNITED System</p>
+                <p style="margin-top: 4px; margin-bottom: 4px">UNTED program </p>
             </li>
             <li>
                 <p style="font-weight: bold; margin: 0px">Result</p>
                 <div style="margin-left: 40px">
                     <li>
-                        <p style="font-weight: bold; margin-top: 4px; margin-bottom: 0px">Status : <span style="font-weight: normal !important">{{ $data->final_result >= 75 ? 'NEGATIF' : 'POSITIF' }}</span></p>
+                        <p style="font-weight: bold; margin-top: 4px; margin-bottom: 0px">Status : <span style="font-weight: normal !important">{{ $data->final_result >= 75 ? 'Negative' : 'Positive' }}</span></p>
                     </li>
                     <li>
                         <p style="font-weight: bold; margin-top: 4px; margin-bottom: 4px">Risk Level : <span style="font-weight: normal !important">

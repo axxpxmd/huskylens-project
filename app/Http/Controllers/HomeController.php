@@ -197,10 +197,10 @@ class HomeController extends Controller
         }
 
         if ($data->final_result >= 75) {
-            $status = 'NEGATIF';
+            $status = 'Negative';
             $text = 'Continue with regular health check-ups and maintain a healthy lifestyle';
         } else {
-            $status = 'POSITIF';
+            $status = 'Positive';
             $text = 'Schedule a consultation with your healthcare provider for further tests and management';
         }
 
