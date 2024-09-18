@@ -51,7 +51,7 @@
                                     and blurred vision may signal a need for testing.
                                 </p>
                                 <p class="fs-14" style="text-align: justify !important">
-                                    <span style="color: #45818E">UNITED</span> is dedicated to making early diabetes detection accessible and non-invasive,
+                                    <span style="color: #45818E; font-weight: bolder">UNITED</span> is dedicated to making early diabetes detection accessible and non-invasive,
                                     empowering individuals to take control of their health before complications arise.
                                     Understanding diabetes and its growing impact is the first step in managing and
                                     preventing this silent but widespread condition. With awareness and action, we can work

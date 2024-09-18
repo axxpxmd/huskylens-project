@@ -168,12 +168,32 @@ class HomeController extends Controller
     {
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
-        $pdf->setPaper('legal', 'portrait');
+        $pdf->setPaper('a4', 'portrait');
 
         $data = Patient::find($patient_id);
 
+        // Check
+        if ($data->final_result >= 85) {
+            $risk_level = 'Low';
+        } elseif ($data->final_result >= 75 && $data->final_result <= 85) {
+            $risk_level = 'Moderate';
+        } else {
+            $risk_level = 'High';
+        }
+
+        if ($data->final_result >= 75) {
+            $status = 'Negative';
+            $text = 'Continue with regular health check-ups and maintain a healthy lifestyle';
+        } else {
+            $status = 'Positive';
+            $text = 'Schedule a consultation with your healthcare provider for further tests and management';
+        }
+
         $pdf->loadView('report', compact(
-            'data'
+            'data',
+            'risk_level',
+            'status',
+            'text'
         ));
 
         return $pdf->stream("test" . ".pdf");
