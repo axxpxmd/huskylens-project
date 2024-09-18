@@ -7,7 +7,7 @@
                     <img src="{{ asset('images/logo-united.png') }}" class="image-1 animate__animated  animate__slideInLeft">
                 </div>
                 <div>
-                    <img src="{{ asset('images/about.png') }}" class="image-hide animate__animated  animate__slideInRight" style="width: 15%; bottom: 550px !important; margin-left: 950px; position: absolute !important">
+                    <img src="{{ asset('images/about.png') }}" class="image-hide animate__animated  animate__slideInRight" style="width: 15%; bottom: 400px !important; margin-left: 1000px; position: absolute !important">
                 </div>
                 <div class="col-auto d-flex justify-content-center">
                     <div class="card shadow-lg p-3 mb-5 bg-body animate__animated animate__bounceInDown" style="border: none; border-radius: 20px; width: 60%;">
