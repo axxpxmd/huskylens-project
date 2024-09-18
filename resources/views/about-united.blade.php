@@ -18,7 +18,7 @@
                             </div>
                             <div>
                                 <p class="fs-14" style="text-align: justify !important">
-                                    <span style="color: #45818E; font-weight: bolder">UNITED</span> (Utilized HuskyLens for Non-Invasive Early Detection of Diabetes Mellitus through
+                                    <span style="color: #45818E; font-weight: bolder">UNITED</span> (Utilizing AI for Non-Invasive Early Detection of Diabetes Mellitus through
                                     Tongue Analysis) is a groundbreaking platform designed to revolutionize early diabetes
                                     detection. By combining state-of-the-art HuskyLens technology with a user-friendly
                                     digital experience, <span style="color: #45818E; font-weight: bolder">UNITED</span> offers a non-invasive method to identify early signs of

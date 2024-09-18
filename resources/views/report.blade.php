@@ -34,7 +34,7 @@
             </td>
             <td width="70%">
                 <div style="color: #00BDAC !important; font-weight: bolder">
-                    <p style="margin: 0px !important; font-size: 24px">Utilized Huskylens for Non – Invasive</p>
+                    <p style="margin: 0px !important; font-size: 24px">Utilized AI for Non – Invasive</p>
                     <p style="margin: 0px !important; font-size: 24px">Early Detection of Diabetes Mellitus </p>
                     <p style="margin: 0px !important; font-size: 24px">through Tongue Analysis </p>
                     <p style="margin: 0px !important; font-size: 24px; color: black !important">Analysis Report</p>
