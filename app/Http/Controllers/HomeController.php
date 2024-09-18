@@ -241,7 +241,10 @@ class HomeController extends Controller
         $pdf->getDomPDF()->set_option("enable_php", true);
         $pdf->setPaper('legal', 'portrait');
         $pdf->loadView('report', compact(
-            'data'
+            'data',
+            'risk_level',
+            'status',
+            'text'
         ));
 
         // get content PDF
